@@ -1,5 +1,5 @@
 #!/bin/sh
-INST_LINVAR=$(sed 's|.*linux|linux|' /proc/cmdline | sed 's|.img||g' | awk '{ print $1 }')
+INST_LINVAR=linux
 INST_LINVER=$(pacman -Qi ${INST_LINVAR} | grep Version | awk '{ print $3 }')
 if [ "${INST_LINVER}" = \
 "$(pacman -Si ${INST_LINVAR}-headers | grep Version | awk '{ print $3 }')" ]; then
